@@ -1,0 +1,510 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #030712;
+    color: rgb(255, 255, 255);
+}
+
+/* HERO */
+
+#hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    background-image: url("../img/Hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, .35),
+            rgba(0, 0, 0, .55));
+
+    backdrop-filter: blur(1px);
+}
+
+header {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 35px 70px;
+}
+
+header img {
+
+    width: 130px;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 20px;
+}
+
+.hero-badge {
+
+    padding: 10px 20px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(255, 255, 255, .15);
+
+    background: rgba(255, 255, 255, .05);
+
+    backdrop-filter: blur(10px);
+
+    color: #7ef5e6;
+
+    font-size: .9rem;
+
+    margin-bottom: 30px;
+}
+
+.hero-content h1 {
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+
+}
+
+.hero-content p {
+
+    max-width: 700px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+    color: #d6d6d6;
+
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 20px;
+
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+
+    text-decoration: none;
+
+    color: #031114;
+
+    background: #45e6d7;
+
+    padding: 16px 42px;
+
+    border-radius: 999px;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 25px rgba(69, 230, 215, .7);
+}
+
+.btn-secondary {
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 16px 42px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(255, 255, 255, .2);
+
+    transition: .3s;
+}
+
+.btn-secondary:hover {
+
+    background: rgba(255, 255, 255, .05);
+}
+
+.hero-stats {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    color: #c9c9c9;
+
+    font-size: .9rem;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px) {
+
+    header {
+
+        padding: 30px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+
+        width: 100%;
+    }
+}
+
+/* ========================= */
+/* SOLUÇÃO */
+/* ========================= */
+
+#solucao {
+
+    padding: 120px 8%;
+
+    background: #02030b;
+}
+
+.section-header {
+
+    text-align: center;
+
+    max-width: 850px;
+
+    margin: 0 auto 80px;
+}
+
+.section-tag {
+
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    border-radius: 999px;
+
+    background: rgba(124, 58, 237, .12);
+
+    border: 1px solid rgba(124, 58, 237, .35);
+
+    color: #c084fc;
+
+    margin-bottom: 25px;
+
+    font-size: .9rem;
+
+    font-weight: 500;
+}
+
+.section-header h2 {
+
+    font-size: 3rem;
+
+    margin-bottom: 20px;
+
+    line-height: 1.2;
+}
+
+.section-header p {
+
+    color: #b8b8b8;
+
+    line-height: 1.8;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.cards-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 40px;
+}
+
+.solution-card {
+
+    background:
+        linear-gradient(180deg,
+            rgba(54, 18, 87, .85),
+            rgba(17, 10, 35, .95));
+
+    border: 1px solid rgba(168, 85, 247, .15);
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    transition: .4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.solution-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    background:
+        radial-gradient(rgba(168, 85, 247, .35),
+            transparent);
+
+    top: -100px;
+    left: -100px;
+
+    opacity: 0;
+
+    transition: .4s;
+}
+
+.solution-card:hover::before {
+
+    opacity: 1;
+}
+
+.solution-card:hover {
+
+    transform:
+        translateY(-12px);
+
+    box-shadow:
+        0 0 40px rgba(168, 85, 247, .25);
+}
+
+.solution-card img {
+
+    width: 100%;
+
+    border-radius: 16px;
+
+    margin-bottom: 30px;
+}
+
+.solution-card h3 {
+
+    font-size: 2rem;
+
+    margin-bottom: 15px;
+}
+
+.solution-card p {
+
+    color: #d2d2d2;
+
+    line-height: 1.7;
+}
+
+/* ========================= */
+/* DESAFIOS */
+/* ========================= */
+
+#desafios {
+
+    background: #01020a;
+
+    padding: 120px 8%;
+}
+
+.challenge-header {
+
+    text-align: center;
+
+    margin-bottom: 80px;
+}
+
+.challenge-header h2 {
+
+    font-size: 2.8rem;
+
+    max-width: 700px;
+
+    margin: 20px auto 0;
+
+    line-height: 1.3;
+}
+
+.challenge-list {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+.challenge-card {
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(32, 16, 64, .95),
+            rgba(13, 10, 25, .95));
+
+    border: 1px solid rgba(168, 85, 247, .18);
+
+    border-radius: 24px;
+
+    padding: 20px 30px;
+
+    transition: .4s;
+}
+
+.challenge-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 0 30px rgba(168, 85, 247, .25);
+}
+
+.challenge-card.right {
+
+    flex-direction: row-reverse;
+}
+
+.challenge-card img {
+
+    width: 280px;
+
+    border-radius: 12px;
+}
+
+.challenge-text {
+
+    flex: 1;
+}
+
+.challenge-text h3 {
+
+    font-size: 1.4rem;
+
+    margin-bottom: 15px;
+
+    line-height: 1.4;
+}
+
+.challenge-text p {
+
+    color: #c6c6c6;
+
+    line-height: 1.7;
+}
+
+.offset{
+
+    margin-left:180px;
+}
+
+@media(max-width:900px) {
+
+    .challenge-card,
+    .challenge-card.right {
+
+        flex-direction: column;
+    }
+
+    .challenge-card img {
+
+        width: 100%;
+    }
+
+    .challenge-header h2 {
+
+        font-size: 2rem;
+    }
+    
+    .offset{
+
+        margin-left:0px;
+    }
+}
