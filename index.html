@@ -30,21 +30,28 @@
 
 <body>
 
-    <section id="hero">
+    <header>
 
         <div class="overlay"></div>
 
-        <header>
+        <nav>
 
             <img src="./assets/icons/Aurora - Logo branco.png" alt="Logo Aurora">
 
-        </header>
+            <ul>
+                <li><a href="" id="btn-link">Solução</a></li>
+                <li><a href="" id="btn-link">Como funciona?</a></li>
+                <li><a href="" id="btn-link">Resultados</a></li>
+                <li><a href="" id="btn-link">FAQ</a></li>
+            </ul>
 
-        <div class="hero-content">
+        </nav>
+
+        <div id="hero-content">
 
             <span class="hero-badge" data-aos="fade-down">
 
-                People Analytics para empresas
+                People Analytics para decisões melhores
 
             </span>
 
@@ -52,29 +59,27 @@
 
                 Decisões sobre pessoas guiadas por dados.
                 <br>
-                Insights que geram resultados.
+                <span>Insights que geram resultados.</span>
 
             </h1>
 
             <p data-aos="fade-up" data-aos-delay="400">
 
-                Cruzamos dados de performance,
-                cultura e engajamento para gerar
-                insights estratégicos que apoiam
-                líderes, RHs e executivos na tomada
-                de decisões mais conscientes.
+                A Aurora cruza dados de performance, cultura e engajamento para gerar insights que ajudam líderes a
+                decidir melhor, com
+                foco em resultado e impacto.
 
             </p>
 
             <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
 
-                <a href="#contato" class="btn-primary">
+                <a href="#contato" id="btn-primary">
 
                     Agendar demonstração
 
                 </a>
 
-                <a href="#solucao" class="btn-secondary">
+                <a href="#solucao" id="btn-secondary">
 
                     Saiba mais
 
@@ -84,103 +89,65 @@
 
             <div class="hero-stats" data-aos="fade-up" data-aos-delay="800">
 
-                <span>People Analytics</span>
-
-                <span>•</span>
-
-                <span>Gestão Estratégica</span>
-
-                <span>•</span>
-
-                <span>Decisões Baseadas em Dados</span>
+                Dados claros. Decisões mais conscientes.
 
             </div>
 
         </div>
 
-    </section>
+    </header>
 
-    <!-- AOS -->
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <script>
-
-        AOS.init({
-
-            duration: 1000,
-            once: false
-
-        });
-
-    </script>
     <section id="solucao">
 
-        <div class="section-header">
+        <h2 data-aos="fade-up" data-aos-delay="100">
 
-            <span class="section-tag" data-aos="fade-up">
+            Os desafios invisíveis que impactam sua empresa
 
-                Solução Aurora
-
-            </span>
-
-            <h2 data-aos="fade-up" data-aos-delay="100">
-
-                Dados transformam pessoas em decisões estratégicas.
-
-            </h2>
-
-            <p data-aos="fade-up" data-aos-delay="200">
-
-                Centralize indicadores de performance,
-                engajamento e cultura para liderar
-                com mais clareza e previsibilidade.
-
-            </p>
-
-        </div>
+        </h2>
 
         <div class="cards-container">
 
-            <article class="solution-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="solution-card" data-aos="zoom-in" data-aos-delay="100">
 
-                <img src="./assets/img/dados.png" alt="Dados unificados">
+                <img src="./assets/img/planilhas.png" alt="Dados unificados">
 
-                <h3>Dados unificados</h3>
+                <div>
+                    <h3>Horas perdidas em planilhas desconectadas?</h3>
+                    <p>
+                        A Aurora consolida dados de performance,
+                        cultura e engajamento em uma única solução, em tempo real.
+                    </p>
+                </div>
 
-                <p>
-                    Reúna indicadores de diferentes
-                    áreas em uma única visão estratégica.
-                </p>
+            </div>
 
-            </article>
-
-            <article class="solution-card" data-aos="zoom-in" data-aos-delay="250">
-
+            <div class="solution-card" data-aos="zoom-in" data-aos-delay="250">
                 <img src="./assets/img/insights.png" alt="Insights acionáveis">
+                <div>
 
-                <h3>Insights acionáveis</h3>
 
-                <p>
-                    Identifique padrões, riscos e
-                    oportunidades com mais rapidez.
-                </p>
+                    <h3>Seus gestores sabem exatamente quem precisa de suporte e quem está pronto para crescer?</h3>
 
-            </article>
+                    <p>
+                        A Aurora mostra o caminho com insights e ações que podem ser aplicadas rapidamente.
+                    </p>
+                </div>
 
-            <article class="solution-card" data-aos="zoom-in" data-aos-delay="400">
+            </div>
 
-                <img src="./assets/img/decisões.png" alt="Decisões inteligentes">
+            <div class="solution-card" data-aos="zoom-in" data-aos-delay="400">
 
-                <h3>Decisões mais inteligentes</h3>
+                <img src="./assets/img/desligamento.png" alt="Decisões inteligentes">
+                <div>
+                    <h3>Cada desligamento custa de 50% a 200% da remuneração anual.</h3>
+                    <p>
+                        A Aurora torna esse impacto
+                        visível antes que ele aconteça para que você possa decidir e agir.
+                    </p>
+                </div>
 
-                <p>
-                    Transforme dados de pessoas
-                    em ações estratégicas para
-                    sua empresa.
-                </p>
-
-            </article>
+            </div>
 
         </div>
 
@@ -188,85 +155,75 @@
 
         <section id="desafios">
 
-            <div class="challenge-header">
+            <h2 data-aos="fade-up" data-aos-delay="100">
 
-                <span class="section-tag" data-aos="fade-up">
-
-                    Desafios do mercado
-
-                </span>
-
-                <h2 data-aos="fade-up" data-aos-delay="100">
-
-                    Os desafios invisíveis que impactam sua empresa
-                </h2>
-
-            </div>
+                E se você pudesse centralizar indicadores de performance, engajamento e cultura para liderar com mais
+                clareza e
+                previsibilidade?
+            </h2>
 
             <div class="challenge-list">
 
-                <article class="challenge-card left" data-aos="fade-right">
+                <div class="challenge-card" id="dados-card" data-aos="fade-right">
 
-                    <img src="./assets/img/db1.png" alt="Dashboard de indicadores">
 
-                    <div class="challenge-text">
+                    <h3>
+                        Dados unificados
+                    </h3>
 
-                        <h3>
-                            Horas perdidas em planilhas desconectadas?
-                        </h3>
+                    <p>
+                        Reúna indicadores de diferentes áreas em uma única visão estratégica.
+                    </p>
 
-                        <p>
-                            Dados espalhados dificultam análises,
-                            atrasam decisões e reduzem a eficiência operacional.
-                        </p>
+                </div>
 
-                    </div>
+                <div class="challenge-card " id="insights-card" data-aos="fade-left">
 
-                </article>
 
-                <article 
-                    class="challenge-card right offset"    
-                    data-aos="fade-left">
 
-                    <img src="./assets/img/db2.png" alt="Gestão de performance">
+                    <h3>
+                        Insights acionáveis
+                    </h3>
 
-                    <div class="challenge-text">
+                    <p>
+                        Identifique padrões, riscos e oportunidades com mais rapidez.
+                    </p>
 
-                        <h3>
-                            Seus gestores sabem exatamente quem precisa de suporte?
-                        </h3>
+                </div>
 
-                        <p>
-                            Sem visibilidade adequada,
-                            oportunidades de desenvolvimento podem ser perdidas.
-                        </p>
+                <div class="challenge-card " id="decisoes-card" data-aos="fade-right">
 
-                    </div>
 
-                </article>
 
-                <article class="challenge-card left" data-aos="fade-right">
+                    <h3>
+                        Dados trazendo decisões mais inteligentes
+                    </h3>
 
-                    <img src="./assets/img/db3.png" alt="Análise de turnover">
+                    <p>
+                        Transforme dados de pessoas em ações estratégicas para sua empresa.
+                    </p>
 
-                    <div class="challenge-text">
-
-                        <h3>
-                            Cada desligamento custa de 50% a 200% da remuneração anual.
-                        </h3>
-
-                        <p>
-                            Antecipar riscos de turnover pode gerar economias significativas.
-                        </p>
-
-                    </div>
-
-                </article>
+                </div>
 
             </div>
 
         </section>
 
 </body>
+
+<!-- AOS -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+    AOS.init({
+
+        duration: 1000,
+        once: false
+
+    });
+
+</script>
 
 </html>
