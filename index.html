@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -54,6 +56,110 @@
             </section>
         </main>
     </div>
+    <section class="dores" id="dores" aria-labelledby="dores-title">
+        <div class="dores__inner">
+            <header class="dores__header">
+                <p class="dores__eyebrow">O PROBLEMA</p>
+                <h2 class="dores__title" id="dores-title">
+                    <span>Dados de pessoas existem.</span>
+                    <span>Clareza ainda não.</span>
+                </h2>
+                <p class="dores__description dores__description--desktop">Quando as informações ficam dispersas, líderes reagem tarde, priorizam no escuro e descobrem o impacto financeiro somente depois.</p>
+                <p class="dores__description dores__description--mobile">Quando as informações ficam dispersas, líderes reagem tarde e descobrem o impacto somente depois.</p>
+            </header>
+
+            <div class="dores__controls">
+                <p class="dores__controls-label dores__controls-label--desktop">05 DESAFIOS QUE ATRASAM DECISÕES</p>
+                <p class="dores__controls-label dores__controls-label--mobile">DESLIZE PARA EXPLORAR</p>
+                <div class="dores__status">
+                    <p class="dores__counter" aria-live="polite" aria-atomic="true"><span class="dores__counter-current">01</span> / 05</p>
+                    <div class="dores__arrows">
+                        <button class="dores__arrow dores__arrow--previous" type="button" aria-label="Desafio anterior" disabled>
+                            <img src="./assets/icons/dores/arrow-left.svg" alt="" width="18" height="18">
+                        </button>
+                        <button class="dores__arrow dores__arrow--next" type="button" aria-label="Próximo desafio" disabled>
+                            <img src="./assets/icons/dores/arrow-right.svg" alt="" width="18" height="18">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dores__carousel-wrap">
+            <p class="dores__fallback-instructions" id="dores-fallback-instructions">Use as teclas de seta para percorrer horizontalmente os cinco desafios.</p>
+            <div class="dores__carousel" role="region" tabindex="0" aria-label="Desafios que atrasam decisões" aria-describedby="dores-fallback-instructions">
+                <div class="dores__slide">
+                    <article class="dores-card dores-card--cyan">
+                        <div class="dores-card__top">
+                            <span class="dores-card__icon" aria-hidden="true">
+                                <img src="./assets/icons/dores/dados-fragmentados.svg" alt="" width="24" height="24">
+                            </span>
+                            <span class="dores-card__number">01</span>
+                        </div>
+                        <h3>Dados espalhados em planilhas</h3>
+                        <p class="dores-card__description">Performance, cultura e engajamento ficam em fontes diferentes, exigindo consolidação manual.</p>
+                        <p class="dores-card__signal">Retrabalho e baixa visibilidade</p>
+                    </article>
+                </div>
+
+                <div class="dores__slide">
+                    <article class="dores-card dores-card--purple">
+                        <div class="dores-card__top">
+                            <span class="dores-card__icon" aria-hidden="true">
+                                <img src="./assets/icons/dores/performance-atrasada.svg" alt="" width="24" height="24">
+                            </span>
+                            <span class="dores-card__number">02</span>
+                        </div>
+                        <h3>Performance vista tarde demais</h3>
+                        <p class="dores-card__description">Metas e sinais qualitativos só aparecem no fim do ciclo, quando a correção já perdeu força.</p>
+                        <p class="dores-card__signal">Ações depois do momento certo</p>
+                    </article>
+                </div>
+
+                <div class="dores__slide">
+                    <article class="dores-card dores-card--pink">
+                        <div class="dores-card__top">
+                            <span class="dores-card__icon" aria-hidden="true">
+                                <img src="./assets/icons/dores/engajamento-sem-acao.svg" alt="" width="24" height="24">
+                            </span>
+                            <span class="dores-card__number">03</span>
+                        </div>
+                        <h3>Engajamento sem desdobramento</h3>
+                        <p class="dores-card__description">Pesquisas capturam o clima, mas os resultados não viram prioridades claras para cada liderança.</p>
+                        <p class="dores-card__signal">Escuta sem ação concreta</p>
+                    </article>
+                </div>
+
+                <div class="dores__slide">
+                    <article class="dores-card dores-card--cyan">
+                        <div class="dores-card__top">
+                            <span class="dores-card__icon" aria-hidden="true">
+                                <img src="./assets/icons/dores/lideranca-sem-direcao.svg" alt="" width="24" height="24">
+                            </span>
+                            <span class="dores-card__number">04</span>
+                        </div>
+                        <h3>Liderança sem direcionamento</h3>
+                        <p class="dores-card__description">Gestores não enxergam quem precisa de suporte, quais riscos importam ou onde agir primeiro.</p>
+                        <p class="dores-card__signal">Decisões reativas</p>
+                    </article>
+                </div>
+
+                <div class="dores__slide">
+                    <article class="dores-card dores-card--pink">
+                        <div class="dores-card__top">
+                            <span class="dores-card__icon" aria-hidden="true">
+                                <img src="./assets/icons/dores/turnover.svg" alt="" width="24" height="24">
+                            </span>
+                            <span class="dores-card__number">05</span>
+                        </div>
+                        <h3>Turnover com custo invisível</h3>
+                        <p class="dores-card__description">Reposição, produtividade perdida e adaptação entram na conta quando o impacto já chegou.</p>
+                        <p class="dores-card__signal">Baixa previsibilidade financeira</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="solucao" aria-labelledby="solucao-title">
         <h2 id="solucao-title" data-aos="fade-up" data-aos-delay="100">Os desafios invisíveis que impactam sua empresa</h2>
         <div class="cards-container">
@@ -79,6 +185,8 @@
             </div>
         </section>
     </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>if (window.AOS) AOS.init({ duration: 1000, once: false });</script>
     <script src="./assets/js/main.js"></script>
