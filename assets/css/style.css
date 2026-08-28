@@ -94,15 +94,6 @@ a:focus-visible,button:focus-visible { outline: var(--focus-ring); outline-offse
 .reveal--2 { animation-delay: 80ms; }.reveal--3 { animation-delay: 160ms; }.reveal--4 { animation-delay: 240ms; }
 @keyframes reveal-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Seções legadas preservadas temporariamente. */
-section:not(.hero) { padding: 2.5rem 4.5rem; }
-h2 { font-size: 2rem; font-weight: 400; text-align: center; }
-#solucao { display: flex; flex-direction: column; gap: 2rem; }
-.cards-container,.challenge-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(10rem,25rem)); justify-content: space-between; gap: 2.5rem; }
-.solution-card { display: flex; overflow: hidden; flex-direction: column; border: 1px solid var(--color-purple-light); border-radius: var(--radius-lg); background: var(--color-raised); }
-.solution-card>div { padding: 1.5rem 2rem; }.solution-card h3 { margin: 0 0 1rem; font-size: 1.5rem; font-weight: 500; }.solution-card p { font-weight: 300; }
-.challenge-card img { width: 280px; border-radius: var(--radius-sm); }
-
 @media (min-width:769px) {
     .site-header__nav { display: block; }
     .site-header__menu-button { display: none; }
@@ -117,7 +108,6 @@ h2 { font-size: 2rem; font-weight: 400; text-align: center; }
     .hero__inner { grid-template-columns: minmax(0,1fr); grid-template-areas: 'copy' 'visual' 'actions' 'assurance'; align-content: start; }
     .hero__actions { grid-template-columns: minmax(0,1fr); gap: .75rem; }
     .hero__assurance { justify-content: center; text-align: center; }
-    .challenge-card,.challenge-card.right { flex-direction: column; }.challenge-card img { width: 100%; }.offset { margin-left: 0; }
 }
 
 @media (max-width:768px) {
@@ -136,7 +126,6 @@ h2 { font-size: 2rem; font-weight: 400; text-align: center; }
     .hero__visual img { width: min(115%,calc(100% + 3.75rem)); }
     .hero__actions { width: 100%; gap: .75rem; margin-top: -.5625rem; }
     .hero__assurance { margin-top: 1.3125rem; }
-    section:not(.hero) { padding: 2.5rem 1.875rem; }
 }
 
 @media (max-width:360px) {
@@ -784,4 +773,342 @@ section.como-resolvemos {
     .como-resolvemos__controls-label { font-size: .625rem; letter-spacing: 0; }
     .como-resolvemos__status { gap: .5rem; }
     .como-resolvemos__counter { min-width: 2.5rem; font-size: .6875rem; }
+}
+
+/* Prova social */
+section.prova-social {
+    position: relative;
+    isolation: isolate;
+    min-height: 56.25rem;
+    padding: 7.25rem 0 7rem;
+    background: #000;
+}
+
+.prova-social::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 14rem;
+    left: 50%;
+    width: min(100%,76rem);
+    height: 25rem;
+    pointer-events: none;
+    background-image: radial-gradient(circle,rgba(157,118,198,.68) 0 1px,transparent 1.4px);
+    background-size: .4375rem .4375rem;
+    opacity: .28;
+    transform: translateX(-50%);
+    -webkit-mask-image: radial-gradient(ellipse at center,#000 0,rgba(0,0,0,.7) 28%,transparent 72%);
+    mask-image: radial-gradient(ellipse at center,#000 0,rgba(0,0,0,.7) 28%,transparent 72%);
+}
+
+.prova-social__inner {
+    position: relative;
+    z-index: 1;
+    width: min(calc(100% - 3rem),var(--content-width));
+    margin-inline: auto;
+}
+
+.prova-social__header { text-align: center; }
+.prova-social__eyebrow {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    flex-direction: column;
+    gap: .6875rem;
+    color: var(--color-cyan);
+    font-size: .875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    letter-spacing: .14em;
+}
+
+.prova-social__eyebrow::after {
+    content: '';
+    width: 3rem;
+    height: .125rem;
+    background: var(--color-cyan);
+}
+
+.prova-social__title {
+    max-width: 61rem;
+    margin: 1rem auto 0;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3.625rem;
+    letter-spacing: -.01em;
+    text-align: center;
+}
+
+.prova-social__description {
+    margin: .375rem 0 0;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+    text-align: center;
+}
+
+.prova-social__testimonials {
+    display: grid;
+    margin-top: 1.75rem;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    min-width: 0;
+    min-height: 20rem;
+    padding: 1.75rem 1.9375rem;
+    border: 1px solid #7957a5;
+    border-radius: 1.5rem;
+    background: rgba(7,8,27,.96);
+}
+
+.testimonial-card__quote-mark {
+    display: block;
+    height: 3.25rem;
+    color: var(--color-pink);
+    font-family: Georgia,serif;
+    font-size: 4.25rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.testimonial-card__person {
+    display: flex;
+    margin-top: .75rem;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.testimonial-card__avatar {
+    display: inline-grid;
+    width: 5.25rem;
+    height: 5.25rem;
+    flex: 0 0 5.25rem;
+    place-items: center;
+    border-radius: 50%;
+    background: #35b9b0;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.testimonial-card__identity { min-width: 0; }
+.testimonial-card__badge {
+    display: inline-flex;
+    min-height: 1.75rem;
+    padding: .25rem 1.125rem;
+    align-items: center;
+    border: 1px solid var(--color-cyan);
+    border-radius: 999px;
+    color: var(--color-cyan);
+    font-size: .75rem;
+    font-weight: 500;
+    line-height: 1.125rem;
+    letter-spacing: .08em;
+}
+
+.testimonial-card h3 {
+    margin: .375rem 0 0;
+    color: #fff;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.testimonial-card__identity p {
+    margin: .375rem 0 0;
+    color: #c6c6d0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.testimonial-card blockquote { margin: 1.25rem 0 0; }
+.testimonial-card blockquote p {
+    margin: 0;
+    color: #f3f3f7;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+}
+
+.prova-social__trust {
+    display: grid;
+    min-height: 6.5rem;
+    margin: 1.75rem 0 0;
+    padding: 1.5rem 0;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    border: 1px solid #7957a5;
+    border-radius: 1.125rem;
+    background: #090a1d;
+    list-style: none;
+}
+
+.prova-social__trust li {
+    display: flex;
+    min-width: 0;
+    padding: 0 1.5rem;
+    align-items: center;
+    gap: 1rem;
+    color: #f4f4f7;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.prova-social__trust li + li { border-left: 1px solid rgba(121,87,165,.58); }
+.prova-social__trust-icon {
+    display: inline-grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: 0 0 2.75rem;
+    place-items: center;
+    border: 1px solid var(--color-cyan);
+    border-radius: 50%;
+    color: var(--color-cyan);
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.prova-social__trust-icon--validation { font-size: 1rem; }
+.prova-social__notice {
+    margin: 1.75rem auto 0;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 500;
+    line-height: 1.125rem;
+    text-align: center;
+}
+
+@media (max-width:768px) {
+    section.prova-social {
+        min-height: 70rem;
+        padding: 2.5rem 0 2.25rem;
+    }
+
+    .prova-social::before {
+        top: 11.5rem;
+        width: 100%;
+        height: 43rem;
+        opacity: .3;
+        -webkit-mask-image: radial-gradient(ellipse at center,#000 0,rgba(0,0,0,.75) 42%,transparent 78%);
+        mask-image: radial-gradient(ellipse at center,#000 0,rgba(0,0,0,.75) 42%,transparent 78%);
+    }
+
+    .prova-social__inner { width: calc(100% - 3.75rem); }
+    .prova-social__eyebrow {
+        gap: .5rem;
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+
+    .prova-social__title {
+        max-width: 28rem;
+        margin-top: .75rem;
+        font-size: clamp(2rem,7.1vw,2.25rem);
+        line-height: 1.1667;
+        letter-spacing: -.02em;
+    }
+
+    .prova-social__description {
+        max-width: 27.875rem;
+        margin: .5rem auto 0;
+        font-size: 1rem;
+        line-height: 1.5625rem;
+    }
+
+    .prova-social__testimonials {
+        margin-top: 1.25rem;
+        grid-template-columns: minmax(0,1fr);
+        gap: 1rem;
+    }
+
+    .testimonial-card {
+        min-height: 17.1875rem;
+        padding: 1.25rem 1.5rem 1.375rem;
+        border-radius: 1.25rem;
+    }
+
+    .testimonial-card__quote-mark {
+        height: 2.25rem;
+        font-size: 3.25rem;
+    }
+
+    .testimonial-card__person {
+        margin-top: .625rem;
+        gap: .875rem;
+    }
+
+    .testimonial-card__avatar {
+        width: 4rem;
+        height: 4rem;
+        flex-basis: 4rem;
+        font-size: 1.25rem;
+    }
+
+    .testimonial-card__badge {
+        min-height: 1.5rem;
+        padding: .125rem .625rem;
+        font-size: .6875rem;
+        line-height: 1rem;
+    }
+
+    .testimonial-card h3 {
+        margin-top: .25rem;
+        font-size: 1.375rem;
+        line-height: 1.625rem;
+    }
+
+    .testimonial-card__identity p {
+        margin-top: .125rem;
+        font-size: .875rem;
+        line-height: 1.25rem;
+    }
+
+    .testimonial-card blockquote { margin-top: .75rem; }
+    .testimonial-card blockquote p {
+        font-size: 1rem;
+        line-height: 1.4375rem;
+    }
+
+    .prova-social__trust {
+        min-height: 12.5rem;
+        margin-top: 1.25rem;
+        padding: 1rem 1.5rem;
+        grid-template-columns: minmax(0,1fr);
+        gap: .75rem;
+        border-radius: 1.25rem;
+    }
+
+    .prova-social__trust li {
+        padding: 0;
+        gap: .875rem;
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+
+    .prova-social__trust li + li { border-left: 0; }
+    .prova-social__trust-icon {
+        width: 2.75rem;
+        height: 2.75rem;
+        flex-basis: 2.75rem;
+    }
+
+    .prova-social__notice {
+        max-width: 25rem;
+        margin-top: 1.25rem;
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+}
+
+@media (max-width:360px) {
+    section.prova-social { padding-top: 2.25rem; }
+    .prova-social__inner { width: calc(100% - 2.5rem); }
+    .testimonial-card { padding-inline: 1.25rem; }
+    .testimonial-card__person { align-items: flex-start; }
+    .prova-social__trust { padding-inline: 1.25rem; }
 }
