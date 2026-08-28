@@ -124,3 +124,103 @@ if (doresCarousel) {
         }
     }
 }
+
+const comoResolvemosSection = document.querySelector('#como-resolvemos');
+
+if (comoResolvemosSection) {
+    const comoResolvemosCarousel = comoResolvemosSection.querySelector('.como-resolvemos__carousel');
+    const previousButton = comoResolvemosSection.querySelector('.como-resolvemos__arrow--previous');
+    const nextButton = comoResolvemosSection.querySelector('.como-resolvemos__arrow--next');
+    const counterCurrent = comoResolvemosSection.querySelector('.como-resolvemos__counter-current');
+    const fallbackInstructions = comoResolvemosSection.querySelector('#como-resolvemos-fallback-instructions');
+    const slideCount = comoResolvemosCarousel?.querySelectorAll('.como-resolvemos__slide').length ?? 0;
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const disableCarouselButtons = () => {
+        if (previousButton) previousButton.disabled = true;
+        if (nextButton) nextButton.disabled = true;
+    };
+
+    const enableCarouselFallback = () => {
+        if (!comoResolvemosCarousel) return;
+        comoResolvemosCarousel.setAttribute('role', 'region');
+        comoResolvemosCarousel.setAttribute('tabindex', '0');
+        comoResolvemosCarousel.setAttribute('aria-describedby', 'como-resolvemos-fallback-instructions');
+        if (fallbackInstructions) fallbackInstructions.hidden = false;
+        comoResolvemosCarousel.querySelectorAll('.slick-instructions').forEach((instructions) => instructions.remove());
+        disableCarouselButtons();
+    };
+
+    disableCarouselButtons();
+
+    if (comoResolvemosCarousel && window.jQuery && typeof window.jQuery.fn.slick === 'function' && previousButton && nextButton && counterCurrent) {
+        const $carousel = window.jQuery(comoResolvemosCarousel);
+
+        if (!$carousel.hasClass('slick-initialized')) {
+            let carouselReady = false;
+
+            const updateCarouselStatus = (currentIndex = 0) => {
+                const safeIndex = Math.min(Math.max(currentIndex, 0), slideCount - 1);
+                const currentLabel = String(safeIndex + 1).padStart(2, '0');
+
+                if (counterCurrent.textContent !== currentLabel) counterCurrent.textContent = currentLabel;
+                previousButton.disabled = safeIndex === 0;
+                nextButton.disabled = safeIndex === slideCount - 1;
+            };
+
+            $carousel.on('init', (_event, slick) => {
+                carouselReady = true;
+                comoResolvemosCarousel.removeAttribute('tabindex');
+                comoResolvemosCarousel.removeAttribute('aria-describedby');
+                if (fallbackInstructions) fallbackInstructions.hidden = true;
+                updateCarouselStatus(slick.currentSlide);
+            });
+
+            $carousel.on('afterChange', (_event, _slick, currentSlide) => {
+                updateCarouselStatus(currentSlide);
+            });
+
+            previousButton.addEventListener('click', () => {
+                if (carouselReady) $carousel.slick('slickPrev');
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (carouselReady) $carousel.slick('slickNext');
+            });
+
+            try {
+                $carousel.slick({
+                    arrows: false,
+                    autoplay: false,
+                    dots: false,
+                    draggable: true,
+                    infinite: false,
+                    instructionsText: 'Use os botões Solução anterior e Próxima solução ou deslize para explorar as cinco soluções.',
+                    regionLabel: 'Como a Aurora transforma sinais em decisões',
+                    rows: 0,
+                    slidesToScroll: 1,
+                    speed: motionPreference.matches ? 0 : 400,
+                    swipe: true,
+                    touchMove: true,
+                    variableWidth: true
+                });
+
+                const updateMotionSpeed = (event) => {
+                    if ($carousel.hasClass('slick-initialized')) {
+                        $carousel.slick('slickSetOption', 'speed', event.matches ? 0 : 400, false);
+                    }
+                };
+
+                if (typeof motionPreference.addEventListener === 'function') {
+                    motionPreference.addEventListener('change', updateMotionSpeed);
+                } else if (typeof motionPreference.addListener === 'function') {
+                    motionPreference.addListener(updateMotionSpeed);
+                }
+            } catch (_error) {
+                carouselReady = false;
+                if ($carousel.hasClass('slick-initialized')) $carousel.slick('unslick');
+                enableCarouselFallback();
+            }
+        }
+    }
+}
