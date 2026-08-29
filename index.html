@@ -314,6 +314,94 @@
             <p class="prova-social__notice">Depoimentos ilustrativos para fins de protótipo. Substituir por relatos autorizados antes da publicação.</p>
         </div>
     </section>
+    <section class="lead-capture" id="contato" aria-labelledby="lead-capture-title">
+        <div class="lead-capture__inner">
+            <div class="lead-capture__intro">
+                <p class="lead-capture__eyebrow">AGENDE UMA DEMONSTRAÇÃO</p>
+                <h2 class="lead-capture__title" id="lead-capture-title">
+                    <span>Decida melhor sobre</span>
+                    <span>pessoas.</span>
+                    <span>Comece por aqui.</span>
+                </h2>
+                <p class="lead-capture__description lead-capture__description--desktop">Conte um pouco sobre sua empresa. Vamos mostrar como a Aurora pode transformar os dados que você já possui em decisões mais claras.</p>
+                <p class="lead-capture__description lead-capture__description--mobile">Conte um pouco sobre sua empresa. Vamos mostrar como a Aurora transforma dados em próximos passos claros.</p>
+
+                <ul class="lead-capture__benefits">
+                    <li><span aria-hidden="true">✓</span> Demonstração contextualizada para seu cenário</li>
+                    <li><span aria-hidden="true">✓</span> Conversa sem compromisso comercial</li>
+                    <li><span aria-hidden="true">✓</span> Tratamento responsável dos dados</li>
+                </ul>
+
+                <p class="lead-capture__response-time"><span aria-hidden="true">↗</span> Retorno em até 1 dia útil.</p>
+            </div>
+
+            <div class="lead-form-card">
+                <header class="lead-form-card__header">
+                    <h3>Vamos entender seu momento</h3>
+                    <p id="lead-form-required">Os campos com <span aria-hidden="true">*</span> são obrigatórios.</p>
+                </header>
+
+                <form class="lead-form" id="lead-form" aria-describedby="lead-form-required" novalidate>
+                    <div class="lead-form__fields">
+                        <div class="form-field">
+                            <label for="lead-name">Nome completo <span aria-hidden="true">*</span><span class="visually-hidden"> (obrigatório)</span></label>
+                            <input id="lead-name" name="nome" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required>
+                            <p class="form-field__error" id="lead-name-error" hidden></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="lead-role">Cargo <span aria-hidden="true">*</span><span class="visually-hidden"> (obrigatório)</span></label>
+                            <input id="lead-role" name="cargo" type="text" autocomplete="organization-title" placeholder="Seu cargo atual" required>
+                            <p class="form-field__error" id="lead-role-error" hidden></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="lead-area">Área <span aria-hidden="true">*</span><span class="visually-hidden"> (obrigatório)</span></label>
+                            <input id="lead-area" name="area" type="text" autocomplete="organization" placeholder="Ex.: Pessoas e Cultura" required>
+                            <p class="form-field__error" id="lead-area-error" hidden></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="lead-email">E-mail profissional <span aria-hidden="true">*</span><span class="visually-hidden"> (obrigatório)</span></label>
+                            <input id="lead-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nome@empresa.com" required>
+                            <p class="form-field__error" id="lead-email-error" hidden></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="lead-phone">Telefone</label>
+                            <input id="lead-phone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" maxlength="15" placeholder="(opcional)">
+                            <p class="form-field__error" id="lead-phone-error" hidden></p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="lead-company-size">Número de colaboradores</label>
+                            <select id="lead-company-size" name="numero_colaboradores" autocomplete="off">
+                                <option value="">Ex.: 51–200 (opcional)</option>
+                                <option value="1-10">1–10</option>
+                                <option value="11-50">11–50</option>
+                                <option value="51-200">51–200</option>
+                                <option value="201-500">201–500</option>
+                                <option value="501-1000">501–1.000</option>
+                                <option value="1001+">Mais de 1.000</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field form-field--consent">
+                        <label class="lead-form__consent" for="lead-consent">
+                            <input id="lead-consent" name="consentimento_lgpd" type="checkbox" value="aceito" required>
+                            <span>Concordo com o tratamento dos meus dados para contato comercial e li a <a href="./politica-de-privacidade.html">Política de Privacidade</a>.</span>
+                        </label>
+                        <p class="form-field__error" id="lead-consent-error" hidden></p>
+                    </div>
+
+                    <button class="lead-form__submit" type="submit">Quero falar com a Aurora</button>
+                    <p class="lead-form__privacy-note">Seus dados não serão compartilhados com terceiros.</p>
+                    <p class="lead-form__status" aria-live="polite" aria-atomic="true"></p>
+                </form>
+            </div>
+        </div>
+    </section>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>

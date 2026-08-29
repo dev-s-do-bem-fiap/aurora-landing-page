@@ -224,3 +224,141 @@ if (comoResolvemosSection) {
         }
     }
 }
+
+const leadForm = document.querySelector('#lead-form');
+
+if (leadForm) {
+    const phoneInput = leadForm.querySelector('#lead-phone');
+    const companySizeSelect = leadForm.querySelector('#lead-company-size');
+    const formStatus = leadForm.querySelector('.lead-form__status');
+
+    const fieldRules = [
+        {
+            field: leadForm.querySelector('#lead-name'),
+            error: leadForm.querySelector('#lead-name-error'),
+            validate: (field) => field.value.trim() ? '' : 'Informe seu nome completo.'
+        },
+        {
+            field: leadForm.querySelector('#lead-role'),
+            error: leadForm.querySelector('#lead-role-error'),
+            validate: (field) => field.value.trim() ? '' : 'Informe seu cargo.'
+        },
+        {
+            field: leadForm.querySelector('#lead-area'),
+            error: leadForm.querySelector('#lead-area-error'),
+            validate: (field) => field.value.trim() ? '' : 'Informe sua área de atuação.'
+        },
+        {
+            field: leadForm.querySelector('#lead-email'),
+            error: leadForm.querySelector('#lead-email-error'),
+            validate: (field) => {
+                if (!field.value.trim()) return 'Informe seu e-mail profissional.';
+                return field.validity.typeMismatch ? 'Digite um e-mail válido, como nome@empresa.com.' : '';
+            }
+        },
+        {
+            field: phoneInput,
+            error: leadForm.querySelector('#lead-phone-error'),
+            validate: (field) => {
+                const digitCount = field.value.replace(/\D/g,'').length;
+                return digitCount === 0 || digitCount === 10 || digitCount === 11
+                    ? ''
+                    : 'Digite um telefone com DDD e 10 ou 11 números.';
+            }
+        },
+        {
+            field: leadForm.querySelector('#lead-consent'),
+            error: leadForm.querySelector('#lead-consent-error'),
+            validate: (field) => field.checked ? '' : 'Confirme o consentimento para prosseguir.'
+        }
+    ];
+
+    const formatBrazilianPhone = (value) => {
+        const digits = value.replace(/\D/g,'').slice(0,11);
+
+        if (!digits) return '';
+        if (digits.length <= 2) return `(${digits}`;
+
+        const areaCode = digits.slice(0,2);
+        const subscriberNumber = digits.slice(2);
+
+        if (subscriberNumber.length <= 4) return `(${areaCode}) ${subscriberNumber}`;
+
+        const prefixLength = digits.length === 11 ? 5 : 4;
+        const prefix = subscriberNumber.slice(0,prefixLength);
+        const suffix = subscriberNumber.slice(prefixLength);
+        return `(${areaCode}) ${prefix}${suffix ? `-${suffix}` : ''}`;
+    };
+
+    const setFieldError = ({ field,error },message) => {
+        if (message) {
+            error.textContent = message;
+            error.hidden = false;
+            field.setAttribute('aria-invalid','true');
+            field.setAttribute('aria-describedby',error.id);
+            return false;
+        }
+
+        error.textContent = '';
+        error.hidden = true;
+        field.removeAttribute('aria-invalid');
+        field.removeAttribute('aria-describedby');
+        return true;
+    };
+
+    const validateField = (rule) => setFieldError(rule,rule.validate(rule.field));
+
+    const collectLeadData = () => ({
+        nome: leadForm.elements.nome.value.trim(),
+        cargo: leadForm.elements.cargo.value.trim(),
+        area: leadForm.elements.area.value.trim(),
+        email: leadForm.elements.email.value.trim(),
+        telefone: leadForm.elements.telefone.value,
+        numeroColaboradores: leadForm.elements.numero_colaboradores.value,
+        consentimentoLgpd: leadForm.elements.consentimento_lgpd.checked
+    });
+
+    const handleValidatedLead = (_leadData) => {
+        formStatus.dataset.state = 'validated';
+        formStatus.textContent = 'Dados validados. O envio será habilitado após a integração do formulário.';
+    };
+
+    phoneInput.addEventListener('input',() => {
+        phoneInput.value = formatBrazilianPhone(phoneInput.value);
+    });
+
+    companySizeSelect.addEventListener('change',() => {
+        companySizeSelect.classList.toggle('has-value',Boolean(companySizeSelect.value));
+    });
+
+    fieldRules.forEach((rule) => {
+        const eventName = rule.field.type === 'checkbox' ? 'change' : 'input';
+
+        rule.field.addEventListener(eventName,() => {
+            if (rule.field.hasAttribute('aria-invalid')) validateField(rule);
+            if (formStatus.textContent) {
+                formStatus.textContent = '';
+                formStatus.removeAttribute('data-state');
+            }
+        });
+    });
+
+    leadForm.addEventListener('submit',(event) => {
+        event.preventDefault();
+        let firstInvalidField = null;
+
+        fieldRules.forEach((rule) => {
+            const isValid = validateField(rule);
+            if (!isValid && !firstInvalidField) firstInvalidField = rule.field;
+        });
+
+        if (firstInvalidField) {
+            formStatus.dataset.state = 'error';
+            formStatus.textContent = 'Revise os campos indicados antes de continuar.';
+            firstInvalidField.focus();
+            return;
+        }
+
+        handleValidatedLead(collectLeadData());
+    });
+}
